@@ -9,14 +9,14 @@ import io
 
 bot = TelegramClient('bot', Config.api_id, Config.api_hash).start(bot_token=Config.token)
 
-default_start_msg = """To use this bot, add the bot in your channel aur send /add"""
+default_start_msg = """Botu Kanala Admin Ekle Ve Kanala /add Yaz"""
 
 
 @bot.on(events.NewMessage(func = lambda e: e.is_private, pattern=r'/start'))
 async def handler(event):
     entity = await bot.get_entity(event.chat_id)
     first_name = entity.first_name
-    button = [[(Button.url("Repo Link", "https://github.com/leeveshkamboj/TGBroadcastBot"))]] 
+    button = [[(Button.url("Ana Gurup", "https://t.me/atomreferans"))]] 
     if Config.start_msg:
         start_msg = Config.start_msg
     else:
@@ -34,7 +34,7 @@ async def handler(event):
 
 @bot.on(events.NewMessage(func = lambda e: e.is_private, pattern=r'/help'))
 async def handler(event):
-    msg = "**Commands available-**\n\n/add - Add channel to database\n/rem - Remove channel from database"
+    msg = "**Commands available-**\n\n/add - Kanalı Databasseye Ekleme\n/rem - Databaseden Kanalı Kaldırma"
     if event.chat_id in Config.ownerID:
         msg += "\n/send - Reply /send to any message to send it to all channels\n/list - to list all channels in database\n/clean - to clean database"
     await bot.send_message(event.chat_id, msg)
