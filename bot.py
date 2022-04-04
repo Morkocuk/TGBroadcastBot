@@ -21,7 +21,7 @@ async def handler(event):
         start_msg = Config.start_msg
     else:
         start_msg = default_start_msg
-    msg = f"**Yo {first_name}**\n\n{start_msg}\n\nEnter /help for more commands"
+    msg = f"**Selam {first_name}**\n\n{start_msg}\n\nTüm Komutlar İçin /help Yaz"
     try:
         owner = await bot.get_entity(Config.ownerID[0])
         name = owner.first_name
