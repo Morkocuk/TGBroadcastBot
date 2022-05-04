@@ -16,7 +16,7 @@ default_start_msg = """Botu Kanala Admin Ekle Ve Kanala /add Yaz"""
 async def handler(event):
     entity = await bot.get_entity(event.chat_id)
     first_name = entity.first_name
-    button = [[(Button.url("Ana Kanal", "https://t.me/zettekno"))]] 
+    button = [[(Button.url("Ana Kanal", "https://t.me/astralarsiv"))]] 
     if Config.start_msg:
         start_msg = Config.start_msg
     else:
